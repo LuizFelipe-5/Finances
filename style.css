@@ -303,3 +303,26 @@ footer {
         gap: 2rem;
     }
 }
+
+/* Animação ============== */
+svg {
+    width: 20%;
+    height: 20%;
+    fill:    #65bbf2 ;
+    stroke: black;
+    stroke-width: 1px;
+    stroke-dasharray: var(--tamanhoTotalDoPath); 
+    stroke-dashoffset: 0; 
+		animation: 5s desenha infinite alternate;	
+}
+
+@keyframes desenha {
+  to {
+		/* Inicio: Ponto inicial */
+    stroke-dashoffset: var(--tamanhoTotalDoPath); 
+  }
+  from {
+		/* Fim: Altera o início para 0 */
+    stroke-dashoffset: 0;
+  }
+}
