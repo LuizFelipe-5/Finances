@@ -1,9 +1,8 @@
-const tagSVG = document.querySelector('svg');
+const tagSVG = document.querySelector('svg')
 
-
-const pathDoSVG = document.querySelector('svg path');
-const tamanhoTotalDoPath = pathDoSVG.getTotalLength();
-tagSVG.style.setProperty('--tamanhoTotalDoPath', tamanhoTotalDoPath);
+const pathDoSVG = document.querySelector('svg path')
+const tamanhoTotalDoPath = pathDoSVG.getTotalLength()
+tagSVG.style.setProperty('--tamanhoTotalDoPath', tamanhoTotalDoPath)
 
 const Modal = {
   open() {
@@ -72,12 +71,11 @@ const Transaction = {
 
   total() {
     return Transaction.incomes() + Transaction.expenses()
-  }
+  },
 }
 
 // Eu preciso substituir os dados do HTML com
 // os dados do JS
-
 const DOM = {
   transactionsContainer: document.querySelector('#data-table tbody'),
   addTransaction(transaction, index) {
@@ -115,6 +113,14 @@ const DOM = {
     document
       .getElementById('totalDisplay')
       .innerHTML = Utils.formatCurrency(Transaction.total())
+  },
+
+  trocaCor() {
+    if (Transaction.total() < 0) {
+      document
+        .getElementById('corTotal')
+        .style.background = '#e92929'
+    }
   },
 
   clearTransactions() {
@@ -223,11 +229,12 @@ const App = {
     Transaction.all.forEach(DOM.addTransaction)
     
     DOM.updateBalance()
-
+    DOM.trocaCor()
     Storage.set(Transaction.all)
   },
   reload() {
     DOM.clearTransactions()
+    
     App.init()
   }
 }
