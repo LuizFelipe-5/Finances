@@ -119,7 +119,11 @@ const DOM = {
     if (Transaction.total() < 0) {
       document
         .getElementById('corTotal')
-        .style.background = '#e92929'
+        .classList.add('negativo');
+    } else {
+      document
+        .getElementById('corTotal')
+        .classList.remove('negativo');
     }
   },
 

@@ -155,6 +155,10 @@ header {
     color: white;
 }
 
+#corTotal.negativo {
+    background-color: var(--red);
+}
+
 /* Table ============== */
 
 #transaction {
